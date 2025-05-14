@@ -55,6 +55,7 @@ public class Vehicle extends Asset {
             // if over 10 years, reduce by 25%
             value = 1000.0;
             }
+        // checking if the miles are over 100k and is a Honda or a Toyota "||" means OR
         if (odometer > 100000 && !(makeModel.contains("Honda") || makeModel.contains("Toyota"))) {
             value *= 0.75;
         }

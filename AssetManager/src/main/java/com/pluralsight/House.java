@@ -7,7 +7,7 @@ public class House extends Asset{
     private int condition;
     private int squareFoot;
     private int lotSize;
-    // 'super' constructor to initalize the properties of parent class, adding address, condition, squarefoot, and lot size
+    // 'super' constructor to initialize the properties of parent class, adding address, condition, squarefoot, and lot size
     public House(String description, String dateAcquired, double originalCost, String address, int condition, int squareFoot, int lotSize) {
         super(description, dateAcquired, originalCost);
         this.address = address;
@@ -49,6 +49,7 @@ public class House extends Asset{
     }
 
     @Override
+    //providing specific implementation (getValue) on parent class's Asset and Vehicle/House subclass
     public double getValue() {
         double pricePerSquareFoot = switch (condition) {
             case 1 -> 180.0;
@@ -57,6 +58,7 @@ public class House extends Asset{
             case 4 -> 80.0;
             default -> 0;
         };
+        // using the price per square foot to determine value by multiplying PPSQFT by SQFT property and adding 25 cents per SQFT of lot size property
         return (pricePerSquareFoot * squareFoot) + (0.25 * lotSize);
     }
 }
